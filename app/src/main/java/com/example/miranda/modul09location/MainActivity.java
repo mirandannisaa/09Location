@@ -17,7 +17,7 @@ import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnSuccessListener;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements GetTaskAddress.onTaskFinish{
 
     Button mLocationButton;
     TextView mLocationTextView;
@@ -55,10 +55,13 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onSuccess(Location location) {
                     if (location != null){
-                        mLastLocation = location;
-                        mLocationTextView.setText(getString(R.string.location_text, mLastLocation.getLatitude(), mLastLocation.getLongitude(), mLastLocation.getTime()));
+//                        mLastLocation = location;
+//                        mLocationTextView.setText(getString(R.string.location_text, mLastLocation.getLatitude(), mLastLocation.getLongitude(), mLastLocation.getTime()));
+                        //reserve geocode AsyncTask
+                        new GetTaskAddress(MainActivity.this, MainActivity.this).execute(location);
                     } else{
-                        mLocationTextView.setText("Location not Available");
+                        //mLocationTextView.setText("Location not Available");
+                        mLocationTextView.setText(getString(R.string.address_text, "Searching Address", System.currentTimeMillis()));
                     }
                 }
             });
@@ -76,5 +79,11 @@ public class MainActivity extends AppCompatActivity {
                 }
                 break;
         }
+    }
+
+    @Override
+    public void onTaskCompleted(String result){
+        //update UI dengan tampilan hasil alamat
+        mLocationTextView.setText(getString(R.string.address_text, result, System.currentTimeMillis()));
     }
 }

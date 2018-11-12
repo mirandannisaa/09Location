@@ -8,6 +8,7 @@
 
     <ImageView
         android:id="@+id/imageview_android"
+        android:paddingTop="10dp"
         android:layout_width="380dp"
         android:layout_height="300dp"
         android:src="@drawable/map"
