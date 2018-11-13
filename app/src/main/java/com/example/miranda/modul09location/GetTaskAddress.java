@@ -31,9 +31,13 @@ public class GetTaskAddress extends AsyncTask<Location, Void, String> {
 
     @Override
     protected String doInBackground(Location... locations) {
+        //object geocoder
         Geocoder geocoder = new Geocoder(mContext, Locale.getDefault());
+        //object location 0 = location yang diambil hanya object pertama
         Location location = locations[0];
+        //list object address
         List<Address> address = null;
+        //hasil resultMessage
         String resultMessage = "";
 
         try {
@@ -62,7 +66,7 @@ public class GetTaskAddress extends AsyncTask<Location, Void, String> {
             for (int i=0; i<=myAddress.getMaxAddressLineIndex(); i++){
                 addressLine.add(myAddress.getAddressLine(i));
             }
-            //Gabung line address dipisah baris baru
+            //Gabung line address di baris baru
             resultMessage = TextUtils.join("\n", addressLine);
         }
 
