@@ -2,6 +2,7 @@
 <set xmlns:android="http://schemas.android.com/apk/res/android"
     android:ordering="sequentially">
 
+    //xml ini digunakan untuk animasi rotate
     <objectAnimator
         android:propertyName="rotation"
         android:duration="500"
@@ -10,5 +11,5 @@
         android:repeatCount="infinite"
         android:repeatMode="reverse"
         />
-    
+
 </set>

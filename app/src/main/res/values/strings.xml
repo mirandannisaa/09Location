@@ -1,6 +1,8 @@
 <resources>
-    <string name="app_name">Location</string>
-    <string name="location_text">"Latitude: %1$.4f \n Longitude: %2$.4f \n Timestamp: %3$tr"</string>
-    <string name="address_text">"Address : %1$s \n Timestamp : %2$tr"</string>
+<string name="app_name">Location</string>
+//mendapatkan lokasi dengan latitude dan longtitude
+<string name="location_text">"Latitude: %1$.4f \n Longitude: %2$.4f \n Timestamp: %3$tr"</string>
+//mendapatkan lokasi dengan nama dan alamatnya serta waktu diaksesnya
+<string name="address_text">"Nama : %1$s \n Address : %2$s \n Timestamp : %3$tr"</string>
 
 </resources>
